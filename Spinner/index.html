@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="arrow"><img src="arrow.png"></div>
+<div class="circle">
+	<div class="triangle"><span></span></div>
+	<div class="triangle" style="transform:rotate(30deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(60deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(90deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(120deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(150deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(180deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(210deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(240deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(270deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(300deg)"><span></span></div>
+	<div class="triangle" style="transform:rotate(330deg)"><span></span></div>
+</div>
+
+<div id="btn-group">
+	<button onclick="spin()">Spin!</button>
+</div>
+
+<div id="winner">
+	<p>The winner is <span></span></p>
+</div>
+
+<div id="changeName">
+	<input type="text" placeholder="Add name">
+	<button onclick="changeName()" >Replace name</button>
+</div>
+ 
+<script>
+
+	nameArr=["Nigar", "Kenan", "Ulvi", "Chingiz", "Nermin", "Aytac", "Elmeddin", "Murad", "Ilyas", "Aygun","Ihsan", "Hasan"]
+
+
+	function placeNames(){
+		for(i=0;i<12;i++){
+			document.getElementsByClassName('triangle')[i].getElementsByTagName('span')[0].innerHTML=nameArr[i]
+		}
+	}
+	placeNames()
+
+	
+	function spin(){
+		// rotate derecesini sechir. (Random olaraq , 3000-e vurma sadece ededi boyutmek uchundur , 3000(tesadufi) dereceden chox firlanmasi goruntunu pozur deye if sherti qoyulur.) //
+		document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=""
+		var deg= Math.floor(Math.random()*3000+Math.random()*600+Math.random()*10)
+		if( deg>3000)
+		{deg=deg%360}
+		document.getElementsByClassName("circle")[0].style.transform="rotate("+deg+"deg)"
+
+		//Winneri-i ekrana chixardir
+		function print(){
+		deg=deg%360;
+			if(deg>14&&deg<=44){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[5]
+			}
+			else if(deg>44&&deg<=74){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[4]
+			}
+			else if(deg>74&&deg<=105){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[3]
+			}
+			else if(deg>105&&deg<=135){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[2]
+			}
+			else if(deg>135&&deg<=166){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[1]
+			}
+			else if(deg>166&&deg<=196){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[0]
+			}
+			else if(deg>196&&deg<=226){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[11]
+			}
+			else if(deg>226&&deg<=255){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[10]
+			}
+			else if(deg>255&&deg<=285){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[9]
+			}
+			else if(deg>285&&deg<=314){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[8]
+			}
+			else if(deg>314&&deg<=344){
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[7]
+			}
+			else{
+				document.getElementById('winner').getElementsByTagName('span')[0].innerHTML=nameArr[6]
+			}
+
+		}
+
+		setTimeout(print, 2800)
+
+	}
+
+	k=0;
+	function changeName(){
+		if(k==12){
+			k=0;
+		}
+
+		var newName=document.getElementsByTagName('input')[0].value;
+		nameArr[k]=newName;
+		k++;
+		placeNames()
+	}
+
+	
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+#arrow{
+	margin:0 auto;
+	height:60px;
+	width:60px;
+}
+
+#arrow img{
+	transform:rotate(-90deg);
+	width:100%;
+
+}
+
+.circle{
+	margin:0 auto;
+	width:564px;
+	height:564px;
+	border-radius:50%;
+	overflow:hidden;
+	background:bisque;
+	position:relative;
+	transition:all 2.5s ease-out;
+}
+
+
+.triangle{
+	background:url(bg1.png);
+	background-size:154px 288px;
+	position:absolute;
+	height:288px;
+	width:154px;
+	left:210px;
+	bottom:-5px;
+	transform-origin:77px 0;
+
+}
+.triangle:nth-child(even){
+	background:url(bg2.png);
+	background-size:154px 288px;
+}
+.triangle span{
+	display:block;
+	padding-top:200px;
+	text-align:center;
+	font-size:20px;
+	font-family:sans-serif;
+}
+
+#btn-group{
+	margin:30px auto;
+	width:420px;
+}
+#btn-group button {
+	width:420px;
+	padding:10px;
+	border-radius:0;
+	border:none;
+	font-size:25px;
+	background-color:#eaeff9;
+}
+
+#winner{
+	margin:30px auto;
+	background-color: #fae8ec;
+	font-size:20px;
+	font-family:sans-serif;
+	padding:10px;
+	text-align:center;
+	width:400px;
+
+}
+
+#winner span{
+	font-weight:bold;
+}
+
+#changeName{
+	margin:30px auto;
+	width:420px;
+}
+
+#changeName input{
+	width:280px;
+	padding:10px;
+	float:left;
+	margin-right:10px;
+}
+
+#changeName button{
+	width:105px;
+	font-size:14px;
+	border:none;
+	height:40px;
+	background-color:#eaeff9;
+}
