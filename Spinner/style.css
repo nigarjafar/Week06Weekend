@@ -16,7 +16,6 @@
 	height:564px;
 	border-radius:50%;
 	overflow:hidden;
-	background:bisque;
 	position:relative;
 	transition:all 2.5s ease-out;
 }
