@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<div id="clock">
+		<img id="arrow-second" src="images/second.jpg">
+		<img id="arrow-minute" src="images/minute.jpg">
+		<img id="arrow-hour" src="images/hour.jpg">
+		<div id="circle"></div>
+	</div>
+
+<script>
+	var time= new Date()
+	console.log(time)
+	var second= time.getSeconds()
+	var minute=time.getMinutes()
+	var hour=time.getHours()
+	
+	
+	//Bashlangic saniyeni alir (tekce variable = edende second deyishdikce var da deyishir, function ise bir defe ishe salindigi uchun yox)
+	function startSecond(){
+		start=time.getSeconds();
+	}
+	//her saniyede 6 derece firlanir
+	startSecond()
+	function secondArrow(){
+			document.getElementById("arrow-second").style.opacity=1;
+			document.getElementById("arrow-second").style.transform="rotate("+(180+second*6)+"deg)"
+			second++;
+	}
+
+	// her deiqede 6,saniyede 0.1 derece firlanir,(minute*6)bashlangic deqiqe-> (start*0.1)bashlangic secondu elave etmek lazimdir, yoxsa saniyeden asili olaraq bir deqiqe geri qalir
+	var i=0
+	function minuteArrow(){
+			document.getElementById("arrow-minute").style.opacity=1;
+			document.getElementById("arrow-minute").style.transform="rotate("+(180+minute*6+start*0.1+i*0.1)+"deg)"
+			i++;
+	}
+	//saniyede 1/120 derece,saatda 30 derece firlanir. hemin deqiqenin derecesin de elave etmek lazimdir.
+	var k=0
+	function hourArrow(){
+			document.getElementById("arrow-hour").style.opacity=1;
+			document.getElementById("arrow-hour").style.transform="rotate("+(180+hour*30+minute*60*1/120+k*1/120)+"deg)"
+			k++;
+	}
+
+setInterval(secondArrow , 1000)
+setInterval(minuteArrow , 1000)
+setInterval(hourArrow , 1000)
+
+console.log(k)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+#clock{
+	margin:0 auto;
+	height:562px;
+	width:562px;
+	position:relative;
+	background:url(../images/clock51.jpg);
+	background-position:center;
+}
+
+#arrow-second, #arrow-minute, #arrow-hour{
+	position:absolute;
+	top:281px;
+	transform-origin:0 0;
+	opacity:0;
+
+}
+
+#arrow-second{
+	left:280px;
+}
+#arrow-minute{
+	left:278px;
+}
+#arrow-hour{
+	left:279px;
+}
+#circle{
+	position:absolute;
+	top:271px;
+	left:271px;
+	height:20px;
+	width:20px;
+	border-radius:50%;
+	background:black;
+}
